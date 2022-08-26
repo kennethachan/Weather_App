@@ -1,6 +1,6 @@
 <template>
   <section>
-    <p class="heading bold">Weekly Forecast</p>
+    <p class="heading bold">This Week</p>
     <div class="items">
       <div class="day" v-for="(data, index) in dailyWeather" :key="index">
 
@@ -107,7 +107,7 @@ td {
   }
 
   .low{
-    color: #82A6BE;
+    color: #4182AC;
      font-weight: bold;
   }
 

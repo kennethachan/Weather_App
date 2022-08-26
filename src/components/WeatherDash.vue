@@ -1,6 +1,6 @@
 <template>
   <section class="current">
-    <p class="heading bold">Current Weather</p>
+    <h3 class="heading">Right Now</h3>
     <div>
   <table>
   <thead>
