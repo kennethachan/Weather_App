@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <p class="timezone"><span class="bold">Where am I ?</span>:{{timezone.timezone}}</p>
+    <p class="timezone"><span class="bold">Where am I ?:</span><span class="where bold">
+      {{timezone.timezone}}
+    </span></p>
     <WeatherDash v-if="currentWeather" :currentWeather="currentWeather" />
     <WeeklyForecast v-if="currentWeather" :dailyWeather="dailyWeather" :currentWeather="currentWeather" />
     <div v-else>
-      <h3>No Weather</h3>
+      <h3 class="no-weather">No Weather</h3>
     </div>
   </div>
 </template>
@@ -63,6 +65,18 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
     text-align: right;
     color: red;
     position: relative;
+  }
+
+  .where {
+    color: #17539C;
+  }
+
+  .no-weather {
+    color: red;
+  }
+
+  .heading {
+    color: #17539C;
   }
 
 </style>
