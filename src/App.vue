@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h2>{{timezone.timezone}}</h2>
     <WeatherDash v-if="currentWeather" :currentWeather="currentWeather" />
     <WeeklyForecast v-if="currentWeather" :dailyWeather="dailyWeather" :currentWeather="currentWeather" />
     <div v-else>
@@ -21,7 +22,8 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
     },
     data: () => ({
       dailyWeather: [],
-      currentWeather: null
+      currentWeather: null,
+      timezone:[]
     }),
     mounted: function() {
       navigator.geolocation.getCurrentPosition(async (position) => {
@@ -32,6 +34,7 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
       async getCurrentWeather(coords){
         const res = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${API_KEY}`)
         this.currentWeather = res.data.current
+        this.timezone = res.data
         res.data.daily.splice(0,1)
         this.dailyWeather = res.data.daily
       }
@@ -55,4 +58,6 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
   html{
       background-color: #E4BCA4;
   }
+
 </style>
+
