@@ -10,11 +10,11 @@
        <td> <p class="dayy">{{ generateDay(data.dt) }}</p><p>{{ generateDate(data.dt) }}</p></td>
       <td><img class="pic" :src="generateIcon(data.weather[0].icon)" /></td>
      
-            <td><p>High:{{ Math.ceil(data.feels_like.day) }}&#176;</p>
-        <p>low:{{ Math.ceil(data.feels_like.eve) }}&#176;</p></td>
-      <td> <p>Humidity: {{ data.humidity}}%</p></td>
-            <td><p>Wind Speed: {{ Math.ceil(data.wind_speed)}}mph</p></td>
-      <td><p>UV Index: {{ Math.ceil(data.uvi)}}</p></td>
+            <td><p class="high">High:{{ Math.ceil(data.feels_like.day) }}&#176;</p>
+        <p class="low">low:{{ Math.ceil(data.feels_like.eve) }}&#176;</p></td>
+      <td> <p><span class="bold">Humidity:</span> {{ data.humidity}}%</p></td>
+            <td><p><span class="bold">Wind Speed: </span>{{ Math.ceil(data.wind_speed)}}mph</p></td>
+      <td><p><span class="bold">UV Index:</span> <br/>{{ Math.ceil(data.uvi)}}</p></td>
     </tr>
   </thead>
 </table>
@@ -66,6 +66,7 @@ table {
     margin-right: auto;
     display: block;
     margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 td {
@@ -74,9 +75,9 @@ td {
   padding: 0.5rem;
   text-align: center;
 }
-  section {
+  /* section {
     width: 100vw;
-  }
+  } */
   
   .items {
      display: block;
@@ -98,6 +99,20 @@ td {
   .pic{
     margin-left:auto;
     margin-right: auto;
+  }
+
+  .high{
+    color: #DB5E36;
+    font-weight: bold;
+  }
+
+  .low{
+    color: #82A6BE;
+     font-weight: bold;
+  }
+
+  .bold{
+     font-weight: bold;
   }
 </style>
 
