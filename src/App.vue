@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h2>{{timezone.timezone}}</h2>
+    <p class="timezone"><span class="bold">Where am I ?</span>:{{timezone.timezone}}</p>
     <WeatherDash v-if="currentWeather" :currentWeather="currentWeather" />
     <WeeklyForecast v-if="currentWeather" :dailyWeather="dailyWeather" :currentWeather="currentWeather" />
     <div v-else>
@@ -57,6 +57,12 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
 
   html{
       background-color: #E4BCA4;
+  }
+
+  .timezone {
+    text-align: right;
+    color: red;
+    position: relative;
   }
 
 </style>
