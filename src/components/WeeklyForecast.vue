@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>Weekly Forecast</h2>
+    <h3>Weekly Forecast</h3>
     <div class="items">
       <div class="day" v-for="(data, index) in dailyWeather" :key="index">
 
@@ -9,10 +9,10 @@
     <tr>
        <td> <p class="dayy">{{ generateDay(data.dt) }}</p><p>{{ generateDate(data.dt) }}</p></td>
       <td><img class="pic" :src="generateIcon(data.weather[0].icon)" /></td>
-     
             <td><p class="high">High:{{ Math.ceil(data.feels_like.day) }}&#176;</p>
         <p class="low">low:{{ Math.ceil(data.feels_like.eve) }}&#176;</p></td>
       <td> <p><span class="bold">Humidity:</span> {{ data.humidity}}%</p></td>
+      <td> <p><span class="bold">Precipitation:</span><br/>{{ Math.round(data.pop*100)}}%</p></td>
             <td><p><span class="bold">Wind Speed: </span>{{ Math.ceil(data.wind_speed)}}mph</p></td>
       <td><p><span class="bold">UV Index:</span> <br/>{{ Math.ceil(data.uvi)}}</p></td>
     </tr>

@@ -1,10 +1,19 @@
 <template>
   <section class="current">
-    <h3>Current Weather</h3>
+    <h2>Current Weather</h2>
     <div>
-      <h4>{{ Math.ceil(currentWeather.feels_like) }}&#176;</h4>
-      <p>{{ currentWeather.weather[0].description }}</p>
-      <img :src="generateIconUrl(currentWeather.weather[0].icon)" />
+  <table>
+  <thead>
+    <tr>
+       <td> <p class="dayy">{{ generateDay(currentWeather.dt)  }}</p><p>{{ generateDate(currentWeather.dt) }}</p></td>
+      <td>    <img class="pic" :src="generateIconUrl(currentWeather.weather[0].icon)" /></td>
+            <td><p class="">{{Math.ceil(currentWeather.feels_like)  }}&#176;</p></td>
+      <td> <p><span class="bold">Humidity:</span> {{ currentWeather.humidity}}%</p></td>
+            <td><p><span class="bold">Wind Speed: </span>{{ Math.ceil(currentWeather.wind_speed)}}mph</p></td>
+      <td><p><span class="bold">UV Index:</span> <br/>{{ Math.ceil(currentWeather.uvi)}}</p></td>
+    </tr>
+  </thead>
+</table>
     </div>
   </section>
 </template>
@@ -16,7 +25,28 @@
     methods: {
       generateIconUrl(ico) {
         return `http://openweathermap.org/img/wn/${ico}@2x.png`
-      }
+      },
+      generateDate(dt) {
+        let dateTime = new Date(dt * 1000)
+        let dateStr = dateTime.toDateString().split(' ')
+        dateStr.splice(0, 1)
+        dateStr.splice(dateStr.length - 1)
+        return dateStr.join(' ')
+      },
+      generateDay(dt) {
+        const days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ]
+        let date = new Date(dt * 1000)
+        let day = date.getDay()
+        return days[day]
+      },
     }
   }
 </script>
@@ -24,8 +54,7 @@
 <style>
   .current {
     margin: 2px;
-    background-color: #F0E6CE;
-    width: 150px;
+    width: 700px;
     border-radius: 15px;
     margin: 20px;
   }
