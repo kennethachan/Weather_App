@@ -6,7 +6,7 @@
     <WeatherDash v-if="currentWeather" :currentWeather="currentWeather" />
     <WeeklyForecast v-if="currentWeather" :dailyWeather="dailyWeather" :currentWeather="currentWeather" />
     <div v-else>
-      <h3 class="no-weather">No Weather</h3>
+      <h3 class="no-weather">Loading...</h3>
     </div>
   </div>
 </template>
@@ -63,16 +63,16 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
 
   .timezone {
     text-align: right;
-    color: red;
+       color: #B13E19;
     position: relative;
   }
 
   .where {
-    color: #17539C;
+    color: #F0E6CE;
   }
 
   .no-weather {
-    color: red;
+     color: #B13E19;
   }
 
   .heading {
