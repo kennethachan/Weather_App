@@ -58,7 +58,7 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
   }
 
   html{
-      background-color: #E4BCA4;
+      background-color: #82A6BE;
   }
 
   .timezone {
