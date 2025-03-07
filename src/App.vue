@@ -15,7 +15,7 @@
   import axios from 'axios'
   import WeatherDash from './components/WeatherDash.vue'
   import WeeklyForecast from './components/WeeklyForecast.vue'
-const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
+const API_KEY = "e147b2263e695fb6a2921aa16fd3615c"
   export default {
     name: 'App',
     components: {
@@ -34,7 +34,7 @@ const API_KEY = "66dfc8b58a437fe6c4ec7910956e26f5"
     },
     methods: {
       async getCurrentWeather(coords){
-        const res = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${API_KEY}`)
+        const res = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${API_KEY}`)
         this.currentWeather = res.data.current
         this.timezone = res.data
         res.data.daily.splice(0,1)
