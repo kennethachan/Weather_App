@@ -1,6 +1,6 @@
 <template>
   <section>
-    <p class="thisWeek" :style="{ color: isDaytime ? 'black' : 'white' }">This Week</p>
+    <p class="thisWeek" :style="{ color: isDaytime ? '#48484a' : 'white' }">This Week</p>
     <div class="items">
       <div class="day" v-for="(data, index) in dailyWeather" :key="index">
 
@@ -26,7 +26,7 @@
 <script>
   export default {
     name: 'WeeklyForecast',
-    props: ['dailyWeather'],
+    props: ['dailyWeather', 'isDaytime'], // Accepting isDaytime prop
     methods: {
       generateIcon(ico) {
         return `http://openweathermap.org/img/wn/${ico}@2x.png`
@@ -113,7 +113,7 @@ td {
 
   .thisWeek{
     text-align: center;
-    font-weight: bold;
+    font-weight: 900;
     color: #17539C;
   }
 </style>

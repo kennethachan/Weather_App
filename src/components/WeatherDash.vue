@@ -1,6 +1,6 @@
 <template>
   <section class="current">
-    <p class="today" :style="{ color: isDaytime ? 'black' : 'white' }">Now</p>
+    <p class="today" :style="{ color: isDaytime ? '#48484a' : 'white' }">Now</p>
     <div>
       <table>
         <thead>
@@ -58,6 +58,6 @@ export default {
 
 <style>
 .today {
-font-weight: bold
+font-weight: 900
 }
 </style>

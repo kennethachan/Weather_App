@@ -97,6 +97,7 @@
 
   .where {
     font-weight: 900;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8)
   }
 
   .no-weather {
