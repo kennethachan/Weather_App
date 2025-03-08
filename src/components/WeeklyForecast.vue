@@ -1,6 +1,6 @@
 <template>
   <section>
-    <p class="heading bold">This Week</p>
+    <p class="thisWeek" :style="{ color: isDaytime ? 'black' : 'white' }">This Week</p>
     <div class="items">
       <div class="day" v-for="(data, index) in dailyWeather" :key="index">
 
@@ -71,21 +71,17 @@ table {
 
 td {
   width: 100px;
-  /* border: 1px solid black; */
   padding: 0.5rem;
   text-align: center;
 }
-  /* section {
-    width: 100vw;
-  } */
-  
+
   .items {
      display: block;
          margin-left:auto;
     margin-right: auto;
   }
+
   .day {
-    /* background-color: #F0E6CE; */
     width: 800px;
     margin-left:auto;
     margin-right: auto;
@@ -114,7 +110,12 @@ td {
   .bold{
      font-weight: bold;
   }
-</style>
 
+  .thisWeek{
+    text-align: center;
+    font-weight: bold;
+    color: #17539C;
+  }
+</style>
 
 
